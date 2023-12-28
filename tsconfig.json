@@ -1,2 +1,11 @@
-
+{
+    "compilerOptions": {
+      "baseUrl": "./src",
+      "paths": {
+        "@connection/models/*": ["models/*"]
+      }
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"]
+  }
   
