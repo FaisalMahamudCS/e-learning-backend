@@ -3,7 +3,8 @@
       "baseUrl": "./src",
       "paths": {
         "@connection/models/*": ["models/*"],
-        "@service/*": ["services/*"]
+        "@service/*": ["services/*"],
+        "@interface/*": ["interfaces/*"],
       }
     },
     "include": ["src/**/*.ts"],

@@ -1,5 +1,5 @@
 // services/courseService.ts
-import { Course } from '../models';
+import { Course } from '@connection/models/Course';
 
 class CourseService {
   async getAllCourses() {
