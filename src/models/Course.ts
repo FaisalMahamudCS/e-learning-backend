@@ -1,55 +1,55 @@
 // src/models/Course.ts
-import { DataTypes, Model } from 'sequelize';
-import { sequelize } from '../config/connection';
+// import { DataTypes, Model } from 'sequelize';
+// import { sequelize } from '../config/connection';
 
-class Course extends Model {
-  public id!: number;
-  public name!: string;
-}
+// class Course extends Model {
+//   public id!: number;
+//   public name!: string;
+// }
 
-Course.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-  },
-  {
-    sequelize,
-    modelName: 'course',
-  }
-);
+// Course.init(
+//   {
+//     id: {
+//       type: DataTypes.INTEGER,
+//       autoIncrement: true,
+//       primaryKey: true,
+//     },
+//     name: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
+//     },
+//   },
+//   {
+//     sequelize,
+//     modelName: 'course',
+//   }
+// );
 
-export default Course;
+// export default Course;
 
 // models/User.ts
 import { Sequelize, DataTypes, Model } from 'sequelize';
 
-interface UserAttributes {
+interface CourseAttributes {
   id: number;
-  username: string;
+  name: string;
   // Add other fields as needed
 }
 
-class User extends Model<UserAttributes> implements UserAttributes {
+class Course extends Model<CourseAttributes> implements CourseAttributes {
   public id!: number;
-  public username!: string;
+  public name!: string;
   // Add other fields as needed
 }
 
 export default (sequelize: Sequelize) => {
-  User.init({
+  Course.init({
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+  name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -60,8 +60,8 @@ export default (sequelize: Sequelize) => {
     // Other options here
   });
 
-  return User;
+  return Course;
 };
-export {User}
+export {Course}
 
 // export default initUserModel;
