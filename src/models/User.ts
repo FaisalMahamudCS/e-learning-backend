@@ -1,15 +1,14 @@
 // models/User.ts
 import { Sequelize, DataTypes, Model } from 'sequelize';
+import { UserAttributes } from '@interface/user.interface';
 
-interface UserAttributes {
-  id: number;
-  username: string;
-  // Add other fields as needed
-}
 
 class User extends Model<UserAttributes> implements UserAttributes {
   public id!: number;
   public username!: string;
+  email!: string;
+  password!: string;
+  role!: 'student' | 'instructor' | 'admin';
   // Add other fields as needed
 }
 
@@ -24,6 +23,20 @@ export default (sequelize: Sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    role: {
+      type: DataTypes.ENUM('student', 'instructor', 'admin'),
+      allowNull: false,
+    },
+
     // Add other fields as needed
   }, {
     sequelize,
