@@ -36,7 +36,7 @@ interface CourseAttributes {
   // Add other fields as needed
 }
 
-class Course extends Model<CourseAttributes> implements CourseAttributes {
+class Assignment  extends Model<CourseAttributes> implements CourseAttributes {
   public id!: number;
   public name!: string;
   // Add other fields as needed
@@ -49,10 +49,19 @@ export default (sequelize: Sequelize) => {
       primaryKey: true,
       autoIncrement: true,
     },
-  name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+  
+    title: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  description: {
+    type: DataTypes.TEXT,
+    allowNull: false
+  },
+  dueDate: {
+    type: DataTypes.DATE,
+    allowNull: false
+  },
     // Add other fields as needed
   }, {
     sequelize,
@@ -60,8 +69,8 @@ export default (sequelize: Sequelize) => {
     // Other options here
   });
 
-  return Course;
+  return Assignment ;
 };
-export {Course}
+export {Assignment}
 
 // export default initUserModel;
