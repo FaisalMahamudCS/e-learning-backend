@@ -1,8 +1,15 @@
 // models/User.ts
 import { Sequelize, DataTypes, Model } from 'sequelize';
-import { UserAttributes } from '@interface/user.interface';
+// import { UserAttributes } from '@interface/';
 
-
+interface UserAttributes {
+  id: number;
+  username: string;
+  email: string;
+  password: string;
+  role: 'student' | 'instructor' | 'admin';
+  // Add other fields as needed
+}
 class User extends Model<UserAttributes> implements UserAttributes {
   public id!: number;
   public username!: string;

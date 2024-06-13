@@ -32,18 +32,23 @@ import { Sequelize, DataTypes, Model } from 'sequelize';
 
 interface CourseAttributes {
   id: number;
-  name: string;
+  title:string;
+  description:string;
+  dueDate:Date
+
   // Add other fields as needed
 }
 
 class Assignment  extends Model<CourseAttributes> implements CourseAttributes {
   public id!: number;
-  public name!: string;
+  public title!: string;
+  public description!: string;
+  public dueDate!: Date;
   // Add other fields as needed
 }
 
 export default (sequelize: Sequelize) => {
-  Course.init({
+  Assignment.init({
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,

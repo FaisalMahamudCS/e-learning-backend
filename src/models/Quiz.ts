@@ -40,14 +40,17 @@ interface QuizAttributes {
   // Add other quiz-related fields as needed
 }
 
-class Course extends Model<CourseAttributes> implements CourseAttributes {
+class Quiz extends Model<QuizAttributes> implements QuizAttributes {
   public id!: number;
-  public name!: string;
+  public title!: string;
+  public difficulty!: string;
+  public duration!: number;
+  public instructions!: string;
   // Add other fields as needed
 }
 
 export default (sequelize: Sequelize) => {
-  Course.init({
+  Quiz.init({
     id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -78,8 +81,8 @@ export default (sequelize: Sequelize) => {
     // Other options here
   });
 
-  return Course;
+  return Quiz;
 };
-export {Course}
+export {Quiz}
 
 // export default initUserModel;

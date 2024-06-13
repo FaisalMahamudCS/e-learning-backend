@@ -1,13 +1,22 @@
 {
+  
     "compilerOptions": {
-      "baseUrl": "./src",
+      "target": "es6",
+      "module": "commonjs",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "resolveJsonModule": true
+    },  /* Disallow inconsistently-cased references to the same file. */  
       "paths": {
-        "@connection/models/*": ["models/*"],
+        "@connection/models/*": ["src/models/*"],
         "@service/*": ["services/*"],
-        "@interface/*": ["interfaces/*"],
+        "@interface/*": ["src/interfaces/*"],
       }
-    },
-    "include": ["src/**/*.ts"],
+    ,
+    "include": ["src/**/*.ts", "src/models/index.ts"],
     "exclude": ["node_modules"]
   }
   

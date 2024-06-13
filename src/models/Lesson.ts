@@ -26,9 +26,9 @@ class Lesson extends Model<LessonAttributes> implements LessonAttributes {
   // We also initialize the associations here
   public readonly course?: any; // Define course association type
 
-  public static associate(models: any): void {
-    Lesson.belongsTo(models.Course, { foreignKey: 'courseId' });
-  }
+  // public static associate(models: any): void {
+  //   Lesson.belongsTo(models.Course, { foreignKey: 'courseId' });
+  // }
 }
 
 export default (sequelize: Sequelize) => {
