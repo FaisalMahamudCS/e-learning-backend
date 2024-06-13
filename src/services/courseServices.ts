@@ -1,5 +1,6 @@
 // services/courseService.ts
-import { Course } from '@connection/models/Course';
+import {Category} from '../models/Category';
+import {Course} from '../models/Course';
 
 class CourseService {
   async getAllCourses() {
@@ -8,6 +9,12 @@ class CourseService {
 
   async createCourse(data: any) {
     return Course.create(data);
+  }
+  async createCategory(data: any) {
+    return Category.create(data);
+  }
+  async allCategory() {
+    return Category.findAll();
   }
 
   // Add other service methods as needed
