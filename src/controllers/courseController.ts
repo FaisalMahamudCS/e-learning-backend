@@ -25,7 +25,8 @@ class CourseController {
     res.json(newUser);
   }
   async getAllCategory(req: Request, res: Response) {
-    const users = await courseServices.allCategory();
+    const {categoryId}=req.query
+    const users = await courseServices.getCourseCountByCategory(Number(categoryId));
     res.json(users);
   }
   // Add other controller methods as needed
