@@ -1,16 +1,16 @@
 // controllers/userController.ts
 import { Request, Response } from 'express';
-import userService from '@service/userServices';
+import userServices from '../services/userServices';
 
 class UserController {
   async getAllUsers(req: Request, res: Response) {
-    const users = await userService.getAllUsers();
+    const users = await userServices.getAllUsers();
     res.json(users);
   }
 
   async createUser(req: Request, res: Response) {
     const userData = req.body;
-    const newUser = await userService.createUser(userData);
+    const newUser = await userServices.createUser(userData);
     res.json(newUser);
   }
 

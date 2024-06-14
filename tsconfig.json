@@ -12,7 +12,7 @@
     },  /* Disallow inconsistently-cased references to the same file. */  
       "paths": {
         "@connection/models/*": ["src/models/*"],
-        "@service/*": ["services/*"],
+        "@service/*": ["src/services/*"],
         "@interface/*": ["src/interfaces/*"],
       }
     ,

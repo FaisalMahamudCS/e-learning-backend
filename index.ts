@@ -3,7 +3,8 @@ const app = express()
 const port = process.env.PORT || 5020;
 import { Request, Response } from 'express';
 import db from './src/models'; 
-
+import courseRoute from './src/routes/courseRoutes'
+app.use('/api/course',courseRoute)
 app.get('/', (req:Request, res:Response) => {
   db.User.findAll({
       
