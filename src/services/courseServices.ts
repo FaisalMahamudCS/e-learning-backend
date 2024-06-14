@@ -10,6 +10,9 @@ class CourseService {
   async createCourse(data: any) {
     return Course.create(data);
   }
+  async getCourseById(id:number){
+    return Course.findOne({where:{id:id}});
+  }
   async createCategory(data: any) {
     return Category.create(data);
   }

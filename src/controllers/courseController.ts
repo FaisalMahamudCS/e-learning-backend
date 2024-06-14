@@ -7,6 +7,11 @@ class CourseController {
     const users = await courseService.getAllCourses();
     res.json(users);
   }
+  async getCourseById(req: Request, res: Response){
+    const id=req.params.id
+    const users = await courseService.getCourseById(Number(id));
+    res.json(users);
+  }
 
   async createUser(req: Request, res: Response) {
     const userData = req.body;
