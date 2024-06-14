@@ -11,6 +11,8 @@ interface CourseReviewAttributes {
   reviewDate: Date;
   createdAt?: Date;
   updatedAt?: Date;
+  reviewedBy?:string;
+  reviewerId?:number;
 
   // Add other quiz-related fields as needed
 }
@@ -21,6 +23,8 @@ class CourseReview extends Model<CourseReviewAttributes> implements CourseReview
   public courseId!: number;
   public rating!: number;
   public reviewText?: string;
+  public reviewedBy?: string;
+  public reviewerId?: number;
   public reviewDate!: Date;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;}
@@ -60,10 +64,17 @@ export default (sequelize: Sequelize) => {
       type: DataTypes.TEXT,
       allowNull: true,
   },
-  reviewDate: {
-      type: DataTypes.DATE,
+  reviewedBy: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+  },
+  reviewDate:{
+    type:DataTypes.DATE,
+
+  },
+  reviewerId: {
+      type: DataTypes.NUMBER,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
   },
     // Add other fields as needed
   }, {

@@ -1,6 +1,7 @@
 // services/courseService.ts
 import {Category} from '../models/Category';
 import {Course} from '../models/Course';
+import {CourseReview} from '../models/CourseReview';
 
 class CourseService {
   async getAllCourses() {
@@ -12,6 +13,9 @@ class CourseService {
   }
   async getCourseById(id:number){
     return Course.findOne({where:{id:id}});
+  }
+  async getUserReviews(id:number){
+    return CourseReview.findAll({where:{reviewerId:id}});
   }
   async createCategory(data: any) {
     return Category.create(data);

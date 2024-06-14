@@ -14,12 +14,20 @@ class CourseController {
     res.json(users);
   }
 
-  async createUser(req: Request, res: Response) {
+  async createCourse(req: Request, res: Response) {
     const userData = req.body;
-    const newUser = await userService.createUser(userData);
+    const newUser = await courseServices.createCourse(userData);
     res.json(newUser);
   }
-
+  async createCategory(req: Request, res: Response) {
+    const userData = req.body;
+    const newUser = await courseServices.createCategory(userData);
+    res.json(newUser);
+  }
+  async getAllCategory(req: Request, res: Response) {
+    const users = await courseServices.allCategory();
+    res.json(users);
+  }
   // Add other controller methods as needed
 }
 
