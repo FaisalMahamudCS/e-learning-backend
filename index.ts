@@ -4,7 +4,12 @@ const port = process.env.PORT || 5020;
 import { Request, Response } from 'express';
 import db from './src/models'; 
 import courseRoute from './src/routes/courseRoutes'
+const cors = require('cors');
+
+
+app.use(cors())
 app.use('/api/course',courseRoute)
+
 app.get('/', (req:Request, res:Response) => {
   db.User.findAll({
       

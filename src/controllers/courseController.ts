@@ -6,7 +6,7 @@ import courseServices from '../services/courseServices';
 class CourseController {
   async getAllCourse(req: Request, res: Response) {
     const users = await courseServices.getAllCourses();
-    res.json(users);
+    res.send(users);
   }
   async getCourseById(req: Request, res: Response){
     const id=req.params.id

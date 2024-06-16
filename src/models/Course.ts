@@ -81,7 +81,7 @@ export default (sequelize: Sequelize) => {
     // Add other fields as needed
   }, {
     sequelize,
-    modelName: 'User', // Set the model name
+    modelName: 'Course', // Set the model name
     // Other options here
   });
 
