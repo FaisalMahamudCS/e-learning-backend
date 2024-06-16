@@ -4,7 +4,7 @@ import { Sequelize, DataTypes, Model } from 'sequelize';
 
 interface CourseReviewAttributes {
   reviewId: number;
-  studentId: number;
+  userId: number;
   courseId: number;
   rating: number;
   reviewText?: string;
@@ -19,7 +19,7 @@ interface CourseReviewAttributes {
 
 class CourseReview extends Model<CourseReviewAttributes> implements CourseReviewAttributes {
   public reviewId!: number;
-  public studentId!: number;
+  public userId!: number;
   public courseId!: number;
   public rating!: number;
   public reviewText?: string;
@@ -36,21 +36,21 @@ export default (sequelize: Sequelize) => {
       autoIncrement: true,
       primaryKey: true,
   },
-  studentId: {
+  userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: {
-          model: 'students',
-          key: 'student_id',
-      },
+      // references: {
+      //     model: 'Users',
+      //     key: 'userId',
+      // },
   },
   courseId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: {
-          model: 'courses',
-          key: 'course_id',
-      },
+      // references: {
+      //     model: 'courses',
+      //     key: 'course_id',
+      // },
   },
   rating: {
       type: DataTypes.SMALLINT,
@@ -73,13 +73,13 @@ export default (sequelize: Sequelize) => {
 
   },
   reviewerId: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
   },
     // Add other fields as needed
   }, {
     sequelize,
-    modelName: 'User', // Set the model name
+    modelName: 'CourseReview', // Set the model name
     // Other options here
   });
 

@@ -32,6 +32,13 @@ Object.keys(db).forEach(modelName => {
 });
 
 db.sequelize = sequelize;
+
+
 db.Sequelize = Sequelize;
+db.CourseReview.belongsTo(db.User, { foreignKey: 'userId' });
+db.User.hasMany(db.CourseReview, { foreignKey: 'userId' });
+db.Course.belongsTo(db.User, { foreignKey: 'userId' });
+db.User.hasMany(db.Course, { foreignKey: 'userId' });
+console.log("Db",db)
 
 export default db;

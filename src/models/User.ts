@@ -5,6 +5,9 @@ import { Sequelize, DataTypes, Model } from 'sequelize';
 interface UserAttributes {
   id: number;
   username: string;
+  name: string;
+  image: string;
+  instructorDetail: string;
   email: string;
   password: string;
   role: 'student' | 'instructor' | 'admin';
@@ -13,6 +16,9 @@ interface UserAttributes {
 class User extends Model<UserAttributes> implements UserAttributes {
   public id!: number;
   public username!: string;
+  public image!: string;
+  public name!: string;
+  public instructorDetail!: string;
   email!: string;
   password!: string;
   role!: 'student' | 'instructor' | 'admin';
@@ -27,6 +33,18 @@ export default (sequelize: Sequelize) => {
       autoIncrement: true,
     },
     username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    instructorDetail: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image: {
       type: DataTypes.STRING,
       allowNull: false,
     },
