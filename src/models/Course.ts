@@ -38,6 +38,7 @@ interface CourseAttributes {
   level:string;
   photo:string;
 price:string;
+details:string;
   // Add other fields as needed
 }
 
@@ -49,6 +50,7 @@ class Course extends Model<CourseAttributes> implements CourseAttributes {
   public level!: string;
   public photo!: string;
   public price!: string;
+  public details!: string;
   // Add other fields as needed
 }
 
@@ -63,6 +65,9 @@ export default (sequelize: Sequelize) => {
   name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+  details: {
+      type: DataTypes.STRING,
     },
   photo: {
       type: DataTypes.STRING,

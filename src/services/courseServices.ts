@@ -3,6 +3,7 @@ import { Sequelize } from 'sequelize';
 import {Category} from '../models/Category';
 import {Course} from '../models/Course';
 import {CourseReview} from '../models/CourseReview';
+import {User} from '../models/User';
 
 class CourseService {
   async getAllCourses() {
@@ -13,7 +14,14 @@ class CourseService {
     return Course.create(data);
   }
   async getCourseById(id:number){
-    return Course.findOne({where:{id:id}});
+    return Course.findOne({
+      where:{id:id},
+      include:[
+      {
+      model:User
+      }
+      ]
+    });
   }
   async getUserReviews(id:number){
     return CourseReview.findAll({where:{reviewerId:id}});

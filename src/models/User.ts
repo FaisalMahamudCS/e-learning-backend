@@ -34,7 +34,6 @@ export default (sequelize: Sequelize) => {
     },
     username: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     name: {
       type: DataTypes.STRING,
@@ -42,11 +41,9 @@ export default (sequelize: Sequelize) => {
     },
     instructorDetail: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     image: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
@@ -55,7 +52,6 @@ export default (sequelize: Sequelize) => {
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     role: {
       type: DataTypes.ENUM('student', 'instructor', 'admin'),

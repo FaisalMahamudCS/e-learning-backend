@@ -39,6 +39,8 @@ db.CourseReview.belongsTo(db.User, { foreignKey: 'userId' });
 db.User.hasMany(db.CourseReview, { foreignKey: 'userId' });
 db.Course.belongsTo(db.User, { foreignKey: 'userId' });
 db.User.hasMany(db.Course, { foreignKey: 'userId' });
+db.CourseReview.belongsTo(db.Course, { foreignKey: 'courseId' });
+db.Course.hasMany(db.CourseReview, { foreignKey: 'courseId' });
 console.log("Db",db)
 
 export default db;
