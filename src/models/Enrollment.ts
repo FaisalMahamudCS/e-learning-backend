@@ -32,9 +32,9 @@ import { Sequelize, DataTypes, Model } from 'sequelize';
 
 interface EnrollmentAttributes {
   id: number;
-  courseId: string;
-  userId:string;
-  enrollmentDate:string;
+  courseId: number;
+  userId:number;
+  enrollmentDate:Date;
   
   // Add other fields as needed
 }
@@ -42,7 +42,7 @@ interface EnrollmentAttributes {
 class Enrollment extends Model<EnrollmentAttributes> implements EnrollmentAttributes {
   public id!: number;
   public userId!: number ;
-  public courseId:number;
+  public courseId!:number;
   public enrollmentDate!:Date;
   
   // Add other fields as needed
@@ -65,7 +65,6 @@ Enrollment.init({
     },
     enrollmentDate: {
         type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW
     }
     // Add other fields as needed
   }, {
