@@ -4,6 +4,7 @@ import {Category} from '../models/Category';
 import {Course} from '../models/Course';
 import {CourseReview} from '../models/CourseReview';
 import {User} from '../models/User';
+import {Lesson} from '../models/Lesson';
 
 class CourseService {
   async getAllCourses() {
@@ -19,6 +20,12 @@ class CourseService {
       include:[
       {
       model:User
+      },
+      {
+      model:Lesson
+      },
+      {
+      model:CourseReview
       }
       ]
     });

@@ -3,22 +3,18 @@ import { Sequelize, DataTypes, Model } from 'sequelize';
 interface LessonAttributes {
   id: number;
   title: string;
-  content: string;
+  lessons: string;
+  duration: string;
   order: number;
-  resources?: Record<string, any>; // Define type for resources as per your requirement
-  visibility: boolean;
-  completionStatus: boolean;
   courseId: number;
 }
 
 class Lesson extends Model<LessonAttributes> implements LessonAttributes {
   public id!: number;
   public title!: string;
-  public content!: string;
+  public lessons!: string;
+  public duration!: string;
   public order!: number;
-  public resources!: Record<string, any>;
-  public visibility!: boolean;
-  public completionStatus!: boolean;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
   public readonly courseId!: number;
@@ -43,27 +39,19 @@ export default (sequelize: Sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      content: {
-        type: DataTypes.TEXT,
+      lessons: {
+        type: DataTypes.STRING,
         allowNull: false,
       },
+      duration: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+     
       order: {
         type: DataTypes.INTEGER,
-        allowNull: false,
       },
-      resources: {
-        type: DataTypes.JSONB, // Adjust type as necessary
-      },
-      visibility: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: true,
-      },
-      completionStatus: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false,
-      },
+   
       courseId: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -72,9 +60,9 @@ export default (sequelize: Sequelize) => {
     {
       sequelize,
       modelName: 'Lesson',
-      timestamps: true,
     }
   );
 
-  return Lesson;
+  return Lesson
 };
+export {Lesson}

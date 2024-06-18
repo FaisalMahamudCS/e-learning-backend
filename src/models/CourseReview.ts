@@ -53,7 +53,8 @@ export default (sequelize: Sequelize) => {
       // },
   },
   rating: {
-      type: DataTypes.SMALLINT,
+      type: DataTypes.INTEGER
+      ,
       allowNull: false,
       validate: {
           min: 1,
@@ -61,11 +62,11 @@ export default (sequelize: Sequelize) => {
       },
   },
   reviewText: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(1000),
       allowNull: true,
   },
   reviewedBy: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: true,
   },
   reviewDate:{
