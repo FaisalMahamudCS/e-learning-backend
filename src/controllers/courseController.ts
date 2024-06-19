@@ -13,6 +13,18 @@ class CourseController {
     const users = await courseServices.getCourseById(Number(id));
     res.json(users);
   }
+  
+async createPaymentIntent(req:Request, res:Response) {
+  try {
+    const service = req.body;
+    const price = service.price;
+    const amount = price*100;
+    const paymentIntent = await courseServices.createPaymentIntent(service,price,amount);
+    res.status(200).send({clientSecret: paymentIntent.client_secret});
+  } catch (error:any) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
   async createCourse(req: Request, res: Response) {
     const userData = req.body;

@@ -5,12 +5,19 @@ import {Course} from '../models/Course';
 import {CourseReview} from '../models/CourseReview';
 import {User} from '../models/User';
 import {Lesson} from '../models/Lesson';
-
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 class CourseService {
   async getAllCourses() {
     return Course.findAll();
   }
-
+  async createPaymentIntent(service:any,price:any,amount:any){
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount : amount,
+      currency: 'usd',
+      payment_method_types:['card']
+    });
+    return paymentIntent
+    };
   async createCourse(data: any) {
     return Course.create(data);
   }

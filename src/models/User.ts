@@ -3,14 +3,13 @@ import { Sequelize, DataTypes, Model } from 'sequelize';
 // import { UserAttributes } from '@interface/';
 
 interface UserAttributes {
-  id: number;
-  username: string;
-  name: string;
-  image: string;
-  instructorDetail: string;
+  id?: number;
+  username?: string;
+  name?: string;
+  image?: string;
+  instructorDetail?: string;
   email: string;
-  password: string;
-  role: 'student' | 'instructor' | 'admin';
+  role?: 'student' | 'instructor' | 'admin';
   // Add other fields as needed
 }
 class User extends Model<UserAttributes> implements UserAttributes {
@@ -20,7 +19,6 @@ class User extends Model<UserAttributes> implements UserAttributes {
   public name!: string;
   public instructorDetail!: string;
   email!: string;
-  password!: string;
   role!: 'student' | 'instructor' | 'admin';
   // Add other fields as needed
 }
@@ -50,9 +48,7 @@ export default (sequelize: Sequelize) => {
       allowNull: false,
       unique: true,
     },
-    password: {
-      type: DataTypes.STRING,
-    },
+  
     role: {
       type: DataTypes.ENUM('student', 'instructor', 'admin'),
       allowNull: false,

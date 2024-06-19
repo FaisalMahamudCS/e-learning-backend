@@ -44,6 +44,5 @@ db.Course.hasMany(db.CourseReview, { foreignKey: 'courseId' });
 db.Lesson.belongsTo(db.Course, { foreignKey: 'courseId' });
 db.Course.hasMany(db.Lesson, { foreignKey: 'courseId' });
 
-console.log("Db",db)
 
 export default db;

@@ -4,11 +4,14 @@ const port = process.env.PORT || 5020;
 import { Request, Response } from 'express';
 import db from './src/models'; 
 import courseRoute from './src/routes/courseRoutes'
+import userRoute from './src/routes/userRoutes'
 const cors = require('cors');
 
+app.use(express.json());
 
 app.use(cors())
 app.use('/api/course',courseRoute)
+app.use('/api/user',userRoute)
 
 app.get('/', (req:Request, res:Response) => {
   db.User.findAll({
