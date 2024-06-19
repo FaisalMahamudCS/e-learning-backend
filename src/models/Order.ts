@@ -30,26 +30,26 @@
 // models/User.ts
 import { Sequelize, DataTypes, Model } from 'sequelize';
 
-interface EnrollmentAttributes {
+interface OrderAttributes {
   id: number;
   courseId: number;
   userId:number;
-  enrollmentDate:Date;
+  transactionId:string;
   
   // Add other fields as needed
 }
 
-class Enrollment extends Model<EnrollmentAttributes> implements EnrollmentAttributes {
+class Ordee extends Model<OrderAttributes> implements EnrollmentAttributes {
   public id!: number;
   public userId!: number ;
   public courseId!:number;
-  public enrollmentDate!:Date;
+  public transactionId!:string;
   
   // Add other fields as needed
 }
 
 export default (sequelize: Sequelize) => {
-Enrollment.init({
+Order.init({
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -63,18 +63,18 @@ Enrollment.init({
         type: DataTypes.INTEGER,
        
     },
-    enrollmentDate: {
-        type: DataTypes.DATE,
+    transactionId: {
+        type: DataTypes.STRING,
     }
     // Add other fields as needed
   }, {
     sequelize,
-    modelName: 'Enrollment', // Set the model name
+    modelName: 'Order', // Set the model name
     // Other options here
   });
 
-  return Enrollment;
+  return Order;
 };
-export {Enrollment}
+export {Order}
 
 // export default initUserModel;
