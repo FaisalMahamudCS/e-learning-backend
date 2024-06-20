@@ -21,6 +21,8 @@ module.exports = {
     "database":  process.env.DB_NAME,
     "host": process.env.DB_HOST,
     "ssl":true,
+    "native": true,
+
     "dialect": "postgres"
   }
 }
