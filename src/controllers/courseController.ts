@@ -31,6 +31,11 @@ async createPaymentIntent(req:Request, res:Response) {
     const newUser = await courseServices.createCourse(userData);
     res.json(newUser);
   }
+  async createOrder(req: Request, res: Response) {
+    const userData = req.body;
+    const newUser = await courseServices.createOrder(userData);
+    res.json(newUser);
+  }
   async createCategory(req: Request, res: Response) {
     const userData = req.body;
     const newUser = await courseServices.createCategory(userData);

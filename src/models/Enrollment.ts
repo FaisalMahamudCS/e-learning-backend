@@ -34,7 +34,6 @@ interface EnrollmentAttributes {
   id: number;
   courseId: number;
   userId:number;
-  enrollmentDate:Date;
   
   // Add other fields as needed
 }
@@ -43,7 +42,6 @@ class Enrollment extends Model<EnrollmentAttributes> implements EnrollmentAttrib
   public id!: number;
   public userId!: number ;
   public courseId!:number;
-  public enrollmentDate!:Date;
   
   // Add other fields as needed
 }
@@ -63,9 +61,7 @@ Enrollment.init({
         type: DataTypes.INTEGER,
        
     },
-    enrollmentDate: {
-        type: DataTypes.DATE,
-    }
+   
     // Add other fields as needed
   }, {
     sequelize,

@@ -39,7 +39,7 @@ interface OrderAttributes {
   // Add other fields as needed
 }
 
-class Ordee extends Model<OrderAttributes> implements EnrollmentAttributes {
+class Order extends Model<OrderAttributes> implements OrderAttributes {
   public id!: number;
   public userId!: number ;
   public courseId!:number;

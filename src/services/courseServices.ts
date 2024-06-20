@@ -5,6 +5,8 @@ import {Course} from '../models/Course';
 import {CourseReview} from '../models/CourseReview';
 import {User} from '../models/User';
 import {Lesson} from '../models/Lesson';
+import {Order} from '../models/Order';
+import {Enrollment} from '../models/Enrollment';
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 class CourseService {
   async getAllCourses() {
@@ -20,6 +22,11 @@ class CourseService {
     };
   async createCourse(data: any) {
     return Course.create(data);
+  }
+  async createOrder(data: any) {
+     const order=await Order.create(data);
+     const enrollment=await Enrollment.create(data);
+     return enrollment
   }
   async getCourseById(id:number){
     return Course.findOne({

@@ -16,7 +16,7 @@ class UserService {
       const options = { upsert: true };
      console.log("email",email,updateData)
   
-  const resultQuantity=await User.findOrCreate({
+   const [user, created] =await User.findOrCreate({
    where:{
       email:email,
     },
@@ -28,8 +28,9 @@ class UserService {
     }
     
     });
+    console.log("resultQuantity",user)
 
-  return resultQuantity
+  return user
 };
 
   // Add other service methods as needed

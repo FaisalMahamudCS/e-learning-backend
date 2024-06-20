@@ -20,13 +20,14 @@ async updateUser(req:Request, res:Response){
     const email = req.params.email;
     const user = req.body;
     console.log("User",user)
-    const updatedProduct = await userServices.updateUser(email, req.body);
+    const users = await userServices.updateUser(email, req.body);
     const token = jwt.sign({ email: email }, process.env.ACCESS_TOKEN_SECRET as string, { expiresIn: '1d' })
 
     // if (!updatedProduct) {
     //   return res.status(404).json({ message: 'Product not found' });
     // }
-    res.status(200).json({updatedProduct,token});
+    console.log("updatedProduct",users)
+    res.status(200).json({users,token});
   } catch (error:any) {
     console.log(error)
     res.status(500).json({ message: error.message });
